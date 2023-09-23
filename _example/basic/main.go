@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/sideshow/apns2"
-	"github.com/sideshow/apns2/certificate"
+	"github.com/tolki-app/apns2"
+	"github.com/tolki-app/apns2/certificate"
 )
 
 func main() {

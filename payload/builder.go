@@ -39,6 +39,7 @@ type aps struct {
 	RelevanceScore    interface{}        `json:"relevance-score,omitempty"`
 	Sound             interface{}        `json:"sound,omitempty"`
 	ThreadID          string             `json:"thread-id,omitempty"`
+	TargetContentID   string             `json:"target-content-id,omitempty"`
 	URLArgs           []string           `json:"url-args,omitempty"`
 }
 
@@ -218,7 +219,7 @@ func (p *Payload) AlertLaunchImage(image string) *Payload {
 // specifiers in loc-key. See Localized Formatted Strings in Apple
 // documentation for more information.
 //
-//  {"aps":{"alert":{"loc-args":args}}}
+//	{"aps":{"alert":{"loc-args":args}}}
 func (p *Payload) AlertLocArgs(args []string) *Payload {
 	p.aps().alert().LocArgs = args
 	return p
@@ -311,6 +312,11 @@ func (p *Payload) Mdm(mdm string) *Payload {
 //	{"aps":{"thread-id":id}}
 func (p *Payload) ThreadID(threadID string) *Payload {
 	p.aps().ThreadID = threadID
+	return p
+}
+
+func (p *Payload) TargetContentID(targetContentID string) *Payload {
+	p.aps().TargetContentID = targetContentID
 	return p
 }
 
